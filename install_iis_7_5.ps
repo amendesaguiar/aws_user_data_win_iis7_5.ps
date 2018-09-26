@@ -1,0 +1,9 @@
+<powershell>
+import-module servermanager
+
+add-windowsfeature Web-Server, Web-WebServer, Web-Security, Web-Filtering, Web-Mgmt-Console, Web-Asp-Net45, Web-Asp-Net, Web-Scripting-Tools
+
+add-webconfigurationproperty /system.webServer/defaultDocument -name files -value @{value=YOUR PAGE"}
+iisreset /stop
+iisreset /start
+</powershell>
